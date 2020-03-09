@@ -23,7 +23,7 @@ app.use('/pay', require('./controllers/pay'))
 app.listen(process.env.PORT, err => {
 	err
 		? () => {
-				throw err
+			throw err
 		  }
 		: console.log(`Ready on port ${process.env.PORT}`)
 })
