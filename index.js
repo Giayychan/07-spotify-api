@@ -10,7 +10,7 @@ const app = express()
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use(cors())
+app.use(cors({ credentials: true }))
 
 // Routes
 app.use('/artists', require('./controllers/artists'))
@@ -20,10 +20,10 @@ app.use('/genres', require('./controllers/genres'))
 app.use('/pay', require('./controllers/pay'))
 
 // Server
-app.listen(process.env.PORT, err => {
+app.listen(process.env.PORT, (err) => {
 	err
 		? () => {
-			throw err
+				throw err
 		  }
 		: console.log(`Ready on port ${process.env.PORT}`)
 })
